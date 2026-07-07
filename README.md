@@ -149,16 +149,11 @@ You should see something like:
 * Running on http://127.0.0.1:5000
 ```
 
-Flask allows returning dictionaries which are automatically serialized into JSON, making it simple to expose API endpoints consumed by the frontend [web:33][web:31].
+Flask allows returning dictionaries which are automatically serialized into JSON, making it simple to expose API endpoints consumed by the frontend
 
 ### 2. Frontend setup
 
 The frontend is pure static files, so there’s no build step.
-
-- Open `frontend/index.html` directly in your browser  
-  or use a local static server (e.g. VS Code Live Server). 
-
----
 
 ## 💻 Frontend Behaviour
 
