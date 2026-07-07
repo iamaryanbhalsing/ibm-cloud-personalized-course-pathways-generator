@@ -4,8 +4,6 @@ LearnMate is an **agentic AI learning coach** that helps students pick the right
 It is built only on **IBM Cloud** using **IBM watsonx.ai (Granite models)** and **IBM Cloudant**.
 
 ---
-### Live On : https://ibm-cloud-personalized-course-pathways-generator.streamlit.app
----
 
 ## 🎯 Problem & Solution
 
@@ -158,46 +156,7 @@ Flask allows returning dictionaries which are automatically serialized into JSON
 The frontend is pure static files, so there’s no build step.
 
 - Open `frontend/index.html` directly in your browser  
-  or use a local static server (e.g. VS Code Live Server).
-
----
-
-## 🌐 API Endpoints
-
-All endpoints are exposed by `backend/app.py`:
-
-- `GET /`  
-  Returns a JSON message and a list of available endpoints.
-
-- `GET /health`  
-  Simple health check: `{"status": "ok"}`.
-
-- `POST /profile`  
-  Stores a student profile in Cloudant.
-
-  **Request body example:**
-
-  ```json
-  {
-    "student_id": "aryan01",
-    "student_name": "Aryan",
-    "interests": ["frontend", "uiux"],
-    "level": "beginner",
-    "goals": "Become a frontend developer",
-    "time_per_day": "2 hours"
-  }
-  ```
-
-- `GET /profile/<student_id>`  
-  Fetches the stored profile.
-
-- `POST /roadmap`  
-  Sends the student profile fields to **IBM Granite** and returns a **JSON roadmap** as generated text.
-
-- `POST /chat`  
-  Sends the latest student profile + user message to Granite and returns a short coaching reply.
-
-Granite is invoked via watsonx.ai Runtime’s text generation API, with parameters like `max_new_tokens`, `temperature`, and `decoding_method` tuned for concise, structured outputs [web:52][web:49].
+  or use a local static server (e.g. VS Code Live Server). 
 
 ---
 
@@ -211,7 +170,7 @@ The frontend (`frontend/app.js`) does:
 
 All calls use `fetch` with `Content-Type: application/json` and talk to `http://127.0.0.1:5000`.
 
-Flask‑CORS is enabled (`CORS(app)`) so browsers can call the API from a different origin without CORS issues, which is a common pattern for React/JS frontends talking to Flask backends [web:45].
+Flask‑CORS is enabled (`CORS(app)`) so browsers can call the API from a different origin without CORS issues, which is a common pattern for React/JS frontends talking to Flask backends.
 
 ---
 
@@ -235,7 +194,7 @@ Flask‑CORS is enabled (`CORS(app)`) so browsers can call the API from a differ
 LearnMate is **agentic** because:
 
 - It keeps a student profile in Cloudant.
-- Uses Granite to:
+- Uses Lamma Model from IBM to:
   - Analyse interests and skill level.
   - Plan a multi‑week roadmap.
   - Adapt answers based on stored data.
@@ -243,7 +202,7 @@ LearnMate is **agentic** because:
   - Re‑generate roadmaps when progress is updated.
   - Integrate external course catalogs via additional tools.
 
-IBM’s Granite series is designed for inference in business applications and workflows, which matches the agentic coaching pattern used here [web:55][web:52].
+IBM’s Granite series is designed for inference in business applications and workflows, which matches the agentic coaching pattern used here .
 
 ---
 
@@ -276,6 +235,6 @@ Permission is hereby granted, free of charge, to any person obtaining a copy
 
 ## 🤝 Acknowledgements
 
-- **IBM Cloud** Lite tier for free foundational services [web:11][web:12].
-- **IBM watsonx.ai & Granite foundation models** for the AI coaching engine [web:49][web:52][web:55].
-- **IBM Cloudant** for simple NoSQL storage [web:50].
+- **IBM Cloud** Lite tier for free foundational services .
+- **IBM watsonx.ai & Granite foundation models** for the AI coaching engine .
+- **IBM Cloudant** for simple NoSQL storage .
