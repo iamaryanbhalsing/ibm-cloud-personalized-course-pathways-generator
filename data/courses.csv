@@ -1,0 +1,59 @@
+course_name,domain,level,duration_weeks,skills,provider,link
+Intro to Frontend Web Development,frontend,beginner,4,HTML;CSS;Basic JS,FreeCodeCamp,https://www.freecodecamp.org/learn/
+Modern JavaScript for Frontend,frontend,intermediate,3,JavaScript;DOM;Async JS,FrontendMasters,https://frontendmasters.com/
+React Basics,frontend,intermediate,4,React;Components;Props;State,Codecademy,https://www.codecademy.com/
+Advanced React Patterns,frontend,advanced,4,Hooks;Context;State management,FrontendMasters,https://frontendmasters.com/
+Frontend Project: Portfolio Website,frontend,beginner,2,Responsive design;Deployment;GitHub Pages,Self-paced,https://example.com/frontend-portfolio
+
+Python Backend Fundamentals,backend,beginner,4,Python;HTTP;REST APIs,Udemy,https://www.udemy.com/
+Django Web Development,backend,intermediate,4,Django;ORM;Authentication,Udemy,https://www.udemy.com/
+Node.js and Express Essentials,backend,intermediate,3,Node.js;Express;Routing,Codecademy,https://www.codecademy.com/
+Advanced Backend Architecture,backend,advanced,5,Microservices;Caching;Scalability,Coursera,https://www.coursera.org/
+Backend Project: REST API for Blog,backend,beginner,2,CRUD API;Postman;JSON,Self-paced,https://example.com/backend-blog-api
+
+Fullstack Developer Bootcamp,fullstack,beginner,6,HTML;CSS;JS;Node.js;Database,Udemy,https://www.udemy.com/
+Fullstack with MERN,fullstack,intermediate,6,React;Node.js;MongoDB;JWT,Coursera,https://www.coursera.org/
+Fullstack Project: Task Manager App,fullstack,intermediate,4,Frontend-backend integration;Deployment,Self-paced,https://example.com/fullstack-task-manager
+Scalable Fullstack Systems,fullstack,advanced,5,Performance;Security;DevOps basics,Pluralsight,https://www.pluralsight.com/
+
+UI/UX Design Fundamentals,uiux,beginner,4,Design thinking;Wireframing;User research,Coursera,https://www.coursera.org/
+Figma for Beginners,uiux,beginner,2,Figma;UI design;Prototyping,Udemy,https://www.udemy.com/
+UX Research Methods,uiux,intermediate,3,User interviews;Surveys;Usability testing,Interaction Design Foundation,https://example.com/ux-research
+Advanced UI Prototyping,uiux,advanced,3,Interactive prototypes;Design systems;Accessibility,Udemy,https://www.udemy.com/
+UI/UX Capstone Project,uiux,advanced,4,End-to-end case study;Portfolio creation,Self-paced,https://example.com/uiux-capstone
+
+Cybersecurity Basics,cybersecurity,beginner,4,Threats;Network security;Encryption basics,IBM SkillsBuild,https://skillsbuild.org/
+Network Defense Essentials,cybersecurity,intermediate,3,Firewalls;IDS;Secure configurations,EC-Council,https://www.eccouncil.org/
+Ethical Hacking Foundations,cybersecurity,intermediate,4,Pentesting;Vulnerability analysis;Reporting,TryHackMe,https://tryhackme.com/
+Advanced Security Operations,cybersecurity,advanced,5,SIEM;Incident response;Forensics,Coursera,https://www.coursera.org/
+Cybersecurity Lab Project,cybersecurity,advanced,4,Hands-on labs;CTF challenges,Self-paced,https://example.com/cyber-labs
+
+Data Analytics with Excel,data,beginner,3,Spreadsheets;Charts;Basic formulas,LinkedIn Learning,https://www.linkedin.com/learning/
+Data Analytics with Python,data,beginner,5,Pandas;Visualization;Statistics,IBM SkillsBuild,https://skillsbuild.org/
+SQL for Data Analysis,data,beginner,3,SQL;Joins;Aggregations,DataCamp,https://www.datacamp.com/
+Applied Data Analysis Project,data,intermediate,4,EDA;Storytelling;Dashboards,Coursera,https://www.coursera.org/
+Advanced Data Visualization,data,advanced,4,Power BI;Tableau;Dashboard design,Udemy,https://www.udemy.com/
+
+Introduction to AI and ML,ai-ml,beginner,4,AI concepts;Supervised learning;Unsupervised learning,IBM SkillsBuild,https://skillsbuild.org/
+Machine Learning Basics with Python,ai-ml,intermediate,5,Scikit-learn;Model training;Evaluation,Google,https://www.coursera.org/
+Deep Learning Fundamentals,ai-ml,intermediate,6,Neural networks;CNN;RNN,deeplearning.ai,https://www.deeplearning.ai/
+Advanced ML Systems,ai-ml,advanced,6,Feature engineering;MLOps;Deployment,Pluralsight,https://www.pluralsight.com/
+AI Capstone Project,ai-ml,advanced,4,End-to-end ML pipeline;Real-world dataset,Self-paced,https://example.com/ai-capstone
+
+DevOps Essentials,devops,beginner,4,CI/CD;Git;Automation,Udemy,https://www.udemy.com/
+Docker and Containers,devops,intermediate,3,Docker;Images;Containers,Pluralsight,https://www.pluralsight.com/
+Kubernetes Fundamentals,devops,intermediate,4,Kubernetes;Pods;Services,Udacity,https://www.udacity.com/
+Advanced DevOps Practices,devops,advanced,5,Monitoring;Scaling;Infrastructure as code,Coursera,https://www.coursera.org/
+DevOps Project: CI/CD Pipeline,devops,advanced,4,Jenkins;GitHub;Deployment automation,Self-paced,https://example.com/devops-pipeline
+
+Cloud Computing Basics,cloud,beginner,3,Cloud models;Virtualization;Basic services,Coursera,https://www.coursera.org/
+AWS Cloud Practitioner,cloud,beginner,4,AWS core services;Billing;Security,AWS,https://www.aws.training/
+Azure Fundamentals,cloud,intermediate,4,Azure services;Resource groups;Security,Microsoft Learn,https://learn.microsoft.com/
+Cloud Architecture Patterns,cloud,advanced,5,Scalability;Resilience;Cost optimization,Udemy,https://www.udemy.com/
+Cloud Project: Deploy Web App,cloud,intermediate,3,Cloud deployment;DNS;SSL,Self-paced,https://example.com/cloud-webapp
+
+Android App Development Basics,mobile,beginner,4,Android Studio;Layouts;Kotlin basics,Udacity,https://www.udacity.com/
+iOS Development with Swift,mobile,beginner,4,Xcode;Swift;Storyboards,Udacity,https://www.udacity.com/
+Cross-platform Apps with Flutter,mobile,intermediate,4,Dart;Widgets;State management,Udemy,https://www.udemy.com/
+Advanced Mobile Performance,mobile,advanced,3,Optimization;Crash analytics;Security,Coursera,https://www.coursera.org/
+Mobile Project: Todo App,mobile,beginner,2,UI;Local storage;Basic navigation,Self-paced,https://example.com/mobile-todo

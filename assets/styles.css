@@ -1,0 +1,44 @@
+/* assets/styles.css */
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Main title */
+.main-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 1.5rem;
+}
+
+/* Sections */
+.section-header {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Cards */
+.course-card {
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    background-color: #fafafa;
+}
+
+/* Roadmap text */
+.roadmap-text {
+    white-space: pre-wrap;
+    font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}

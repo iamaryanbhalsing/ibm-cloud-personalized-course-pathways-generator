@@ -1,0 +1,59 @@
+{
+  "beginner": {
+    "default": [
+      {
+        "week": 1,
+        "focus": "Foundations and basic concepts",
+        "task": "Complete an introductory course and take notes on key terms."
+      },
+      {
+        "week": 2,
+        "focus": "Hands-on practice",
+        "task": "Solve at least 10 practice problems or exercises."
+      },
+      {
+        "week": 3,
+        "focus": "Small project",
+        "task": "Build a simple project using the concepts learned."
+      }
+    ]
+  },
+  "intermediate": {
+    "default": [
+      {
+        "week": 1,
+        "focus": "Review and consolidate fundamentals",
+        "task": "Revisit core topics and strengthen weak areas."
+      },
+      {
+        "week": 2,
+        "focus": "Apply skills in a structured project",
+        "task": "Start a guided project from a course or tutorial."
+      },
+      {
+        "week": 3,
+        "focus": "Extend the project",
+        "task": "Add one extra feature beyond the tutorial."
+      }
+    ]
+  },
+  "advanced": {
+    "default": [
+      {
+        "week": 1,
+        "focus": "Deep dive into advanced topics",
+        "task": "Complete advanced modules or papers."
+      },
+      {
+        "week": 2,
+        "focus": "Capstone project planning",
+        "task": "Design a capstone project and outline milestones."
+      },
+      {
+        "week": 3,
+        "focus": "Implementation",
+        "task": "Start implementing the capstone project."
+      }
+    ]
+  }
+}
