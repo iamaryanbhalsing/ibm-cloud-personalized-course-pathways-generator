@@ -214,8 +214,8 @@ Provider: {c['provider']}<br>
                     st.info("No matching courses found in the catalog. Try a different domain or level.")
 
             # AI Roadmap tab
+            roadmap_html = plan["roadmap_text"].replace("\n", "<br>")
             with tabs[1]:
-                roadmap_html = plan["roadmap_text"].replace("\n", "<br>")
                 st.markdown('<div class="section-header">AI-generated roadmap</div>', unsafe_allow_html=True)
                 st.markdown(
                     f"<div class='roadmap-text'>{plan['roadmap_text'].replace('\\n', '<br>')}</div>",
