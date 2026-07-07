@@ -214,11 +214,15 @@ Provider: {c['provider']}<br>
                     st.info("No matching courses found in the catalog. Try a different domain or level.")
 
             # AI Roadmap tab
-            roadmap_html = plan["roadmap_text"].replace("\n", "<br>")
             with tabs[1]:
                 st.markdown('<div class="section-header">AI-generated roadmap</div>', unsafe_allow_html=True)
+
+                # Preprocess the text to replace newlines with <br>
+                roadmap_html = plan["roadmap_text"].replace("\n", "<br>")
+
+                # Use the processed variable inside the f-string (no backslash in expression)
                 st.markdown(
-                    f"<div class='roadmap-text'>{plan['roadmap_text'].replace('\\n', '<br>')}</div>",
+                    f"<div class='roadmap-text'>{roadmap_html}</div>",
                     unsafe_allow_html=True,
                 )
 
