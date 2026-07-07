@@ -1,2 +1,284 @@
-# ibm-cloud-personalized-course-pathways-generator
-This ChatBot Generates The Personalizes Course Pathways
+# LearnMate – Agentic AI for Personalized Course Pathways
+
+LearnMate is an **agentic AI learning coach** that helps students pick the right online learning path based on their interests, current skill level, and long‑term goals.  
+It is built only on **IBM Cloud** using **IBM watsonx.ai (Granite models)** and **IBM Cloudant**.
+
+---
+### Live On : https://ibm-cloud-personalized-course-pathways-generator.streamlit.app
+---
+
+## 🎯 Problem & Solution
+
+### Problem
+
+Students are overwhelmed by thousands of online courses and don’t know:
+
+- Which skill path fits their interests (Frontend, Cybersecurity, UI/UX, etc.).
+- Where to start based on their current level.
+- How to adjust the roadmap as they progress or change goals.
+
+### ✅Solution
+
+LearnMate:
+
+- Chats with the student to understand interests and goals.
+- Stores a simple **student profile** on IBM Cloud.
+- Uses **IBM Granite** to generate a **personalized learning roadmap**.
+- Provides an AI chat coach that adapts advice as the student’s profile evolves.
+
+IBM’s Granite foundation models are decoder‑only language models optimized for predicting and generating text, which makes them suitable for this kind of coaching and roadmap generation [web:52][web:55].
+
+---
+
+## 🏗 Architecture Overview
+
+All components run on IBM Cloud:
+
+- **Frontend**: Simple HTML/CSS/JavaScript (static files). - StreamLit
+- **Backend**: Python + Flask API.
+- **AI Layer**: IBM watsonx.ai Runtime using an **IBM Granite instruct model**.
+- **Database**: IBM Cloudant (Lite plan) for storing student profiles.
+
+IBM Cloud Lite plans allow you to try over 40 services, including foundation models and databases, for free within usage limits [web:11][web:12].
+
+---
+
+## 📂 Project Structure
+
+```text
+learnmate/
+  backend/
+    app.py
+    requirements.txt
+    .env
+  frontend/
+    index.html
+    style.css
+    app.js
+```
+
+---
+
+## ⚙️ Prerequisites
+
+Before running the project, you need:
+
+1. **IBM Cloud account** (Lite / Free tier) [web:11][web:12].
+2. **IBM watsonx.ai project** with:
+   - A **Granite instruct model** (e.g., `ibm/granite-3-8b-instruct`).
+   - A **Runtime** instance for text generation.
+3. **IBM Cloudant** Lite instance for storing profiles.
+4. Python 3.10+ installed locally.
+
+---
+
+## 🔑 IBM Cloud Setup
+
+### 1. Create IBM Cloud account
+
+- Go to the IBM Cloud Free Tier page and sign up for an account [web:11][web:12].
+
+### 2. Create watsonx.ai project & Runtime
+
+- Open **watsonx.ai** in IBM Cloud.
+- Create a **Project** (note the **Project ID**).
+- In the project, create a **Runtime** (Lite plan).
+- Enable a Granite text model from the foundation model catalog (Granite instruct family) [web:49][web:52].
+- Generate an **API key** in IBM Cloud (IAM → API keys).
+
+You will need:
+
+- `WATSONX_APIKEY` – your IBM Cloud API key.
+- `WATSONX_PROJECT_ID` – your watsonx.ai project ID.
+- `WATSONX_URL` – usually `https://us-south.ml.cloud.ibm.com`.
+
+### 3. Create Cloudant instance
+
+- In IBM Cloud, create **Cloudant** (Lite).
+- Go to **Service credentials**.
+- Copy:
+  - Cloudant URL (e.g. `https://xxxxx.cloudantnosqldb.appdomain.cloud`).
+  - Cloudant API key.
+
+You will need:
+
+- `CLOUDANT_URL`
+- `CLOUDANT_APIKEY`
+- Any database name (e.g. `learnmate_students`); it will be created automatically.
+
+---
+
+## 🔧 Local Setup
+
+### 1. Backend configuration
+
+In the `backend` folder:
+
+1. Create `.env`:
+
+   ```env
+   WATSONX_APIKEY=your_ibm_api_key_here
+   WATSONX_PROJECT_ID=your_watsonx_project_id_here
+   WATSONX_URL=https://us-south.ml.cloud.ibm.com
+
+   CLOUDANT_URL=https://your-cloudant-url-here
+   CLOUDANT_APIKEY=your_cloudant_apikey_here
+   CLOUDANT_DB=learnmate_students
+   ```
+
+2. Create `requirements.txt`:
+
+   ```txt
+   flask
+   flask-cors
+   requests
+   python-dotenv
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   ```
+
+4. Run the backend:
+
+   ```bash
+   python app.py
+   ```
+
+You should see something like:
+
+```text
+* Running on http://127.0.0.1:5000
+```
+
+Flask allows returning dictionaries which are automatically serialized into JSON, making it simple to expose API endpoints consumed by the frontend [web:33][web:31].
+
+### 2. Frontend setup
+
+The frontend is pure static files, so there’s no build step.
+
+- Open `frontend/index.html` directly in your browser  
+  or use a local static server (e.g. VS Code Live Server).
+
+---
+
+## 🌐 API Endpoints
+
+All endpoints are exposed by `backend/app.py`:
+
+- `GET /`  
+  Returns a JSON message and a list of available endpoints.
+
+- `GET /health`  
+  Simple health check: `{"status": "ok"}`.
+
+- `POST /profile`  
+  Stores a student profile in Cloudant.
+
+  **Request body example:**
+
+  ```json
+  {
+    "student_id": "aryan01",
+    "student_name": "Aryan",
+    "interests": ["frontend", "uiux"],
+    "level": "beginner",
+    "goals": "Become a frontend developer",
+    "time_per_day": "2 hours"
+  }
+  ```
+
+- `GET /profile/<student_id>`  
+  Fetches the stored profile.
+
+- `POST /roadmap`  
+  Sends the student profile fields to **IBM Granite** and returns a **JSON roadmap** as generated text.
+
+- `POST /chat`  
+  Sends the latest student profile + user message to Granite and returns a short coaching reply.
+
+Granite is invoked via watsonx.ai Runtime’s text generation API, with parameters like `max_new_tokens`, `temperature`, and `decoding_method` tuned for concise, structured outputs [web:52][web:49].
+
+---
+
+## 💻 Frontend Behaviour
+
+The frontend (`frontend/app.js`) does:
+
+- `saveProfile()` – calls `/profile` to store the student’s data.
+- `generateRoadmap()` – calls `/roadmap` and displays the generated roadmap JSON.
+- `sendChat()` – calls `/chat` and shows LearnMate’s AI response.
+
+All calls use `fetch` with `Content-Type: application/json` and talk to `http://127.0.0.1:5000`.
+
+Flask‑CORS is enabled (`CORS(app)`) so browsers can call the API from a different origin without CORS issues, which is a common pattern for React/JS frontends talking to Flask backends [web:45].
+
+---
+
+## 🔍 Typical Usage Flow
+
+1. Start the backend: `python app.py`.
+2. Open the frontend: `frontend/index.html`.
+3. Enter:
+   - Student ID and name.
+   - Interests (e.g., `frontend, cybersecurity`).
+   - Level (beginner/intermediate/advanced).
+   - Goal and time per day.
+4. Click **Save Profile**.
+5. Click **Generate Roadmap** – the roadmap appears as formatted JSON.
+6. Use the **Chat** section to ask “How should I start?” or “Can you adjust my plan?”
+
+---
+
+## 🧠 Agentic AI Aspect
+
+LearnMate is **agentic** because:
+
+- It keeps a student profile in Cloudant.
+- Uses Granite to:
+  - Analyse interests and skill level.
+  - Plan a multi‑week roadmap.
+  - Adapt answers based on stored data.
+- It can be extended to:
+  - Re‑generate roadmaps when progress is updated.
+  - Integrate external course catalogs via additional tools.
+
+IBM’s Granite series is designed for inference in business applications and workflows, which matches the agentic coaching pattern used here [web:55][web:52].
+
+---
+
+## 🚀 Future Improvements
+
+Ideas you can add later:
+
+- Skill assessment quizzes before generating the roadmap.
+- Progress tracking (completed topics, dates).
+- Integration with IBM SkillsBuild or external course APIs.
+- Role‑based flows (school admin vs student).
+- More advanced agent orchestration with multi‑step planning.
+
+---
+
+## 📝 License
+
+Choose a license (e.g. MIT) and place it in `LICENSE`:
+
+```text
+MIT License
+
+Copyright (c) 2026 ...
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+...
+```
+
+---
+
+## 🤝 Acknowledgements
+
+- **IBM Cloud** Lite tier for free foundational services [web:11][web:12].
+- **IBM watsonx.ai & Granite foundation models** for the AI coaching engine [web:49][web:52][web:55].
+- **IBM Cloudant** for simple NoSQL storage [web:50].
