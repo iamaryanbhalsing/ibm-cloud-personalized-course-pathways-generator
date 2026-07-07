@@ -1,7 +1,7 @@
 # LearnMate – Agentic AI for Personalized Course Pathways
 
 LearnMate is an **agentic AI learning coach** that helps students pick the right online learning path based on their interests, current skill level, and long‑term goals.  
-It is built only on **IBM Cloud** using **IBM watsonx.ai (Granite models)** and **IBM Cloudant**.
+It is built only on **IBM Cloud** using **IBM watsonx.ai (Granite models)**.
 
 ---
 
