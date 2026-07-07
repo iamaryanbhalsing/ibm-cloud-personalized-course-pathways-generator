@@ -26,7 +26,7 @@ LearnMate:
 - Uses **IBM Granite** to generate a **personalized learning roadmap**.
 - Provides an AI chat coach that adapts advice as the student’s profile evolves.
 
-IBM’s Granite foundation models are decoder‑only language models optimized for predicting and generating text, which makes them suitable for this kind of coaching and roadmap generation [web:52][web:55].
+IBM’s Granite foundation models are decoder‑only language models optimized for predicting and generating text, which makes them suitable for this kind of coaching and roadmap generation .
 
 ---
 
@@ -36,10 +36,10 @@ All components run on IBM Cloud:
 
 - **Frontend**: Simple HTML/CSS/JavaScript (static files). - StreamLit
 - **Backend**: Python + Flask API.
-- **AI Layer**: IBM watsonx.ai Runtime using an **IBM Granite instruct model**.
+- **AI Layer**: IBM watsonx.ai Runtime using an **IBM llama-3-3-70b-instruct model**.
 - **Database**: IBM Cloudant (Lite plan) for storing student profiles.
 
-IBM Cloud Lite plans allow you to try over 40 services, including foundation models and databases, for free within usage limits [web:11][web:12].
+IBM Cloud Lite plans allow you to try over 40 services, including foundation models and databases, for free within usage limits .
 
 ---
 
@@ -63,9 +63,9 @@ learnmate/
 
 Before running the project, you need:
 
-1. **IBM Cloud account** (Lite / Free tier) [web:11][web:12].
+1. **IBM Cloud account** (Lite / Free tier) .
 2. **IBM watsonx.ai project** with:
-   - A **Granite instruct model** (e.g., `ibm/granite-3-8b-instruct`).
+   - A **Granite instruct model** (e.g., `llama-3-3-70b-instruct`).
    - A **Runtime** instance for text generation.
 3. **IBM Cloudant** Lite instance for storing profiles.
 4. Python 3.10+ installed locally.
@@ -76,14 +76,14 @@ Before running the project, you need:
 
 ### 1. Create IBM Cloud account
 
-- Go to the IBM Cloud Free Tier page and sign up for an account [web:11][web:12].
+- Go to the IBM Cloud Free Tier page and sign up for an account .
 
 ### 2. Create watsonx.ai project & Runtime
 
 - Open **watsonx.ai** in IBM Cloud.
 - Create a **Project** (note the **Project ID**).
 - In the project, create a **Runtime** (Lite plan).
-- Enable a Granite text model from the foundation model catalog (Granite instruct family) [web:49][web:52].
+- Enable a Granite text model from the foundation model catalog (llama-3-3-70b-instruct family) .
 - Generate an **API key** in IBM Cloud (IAM → API keys).
 
 You will need:
@@ -120,10 +120,7 @@ In the `backend` folder:
    WATSONX_APIKEY=your_ibm_api_key_here
    WATSONX_PROJECT_ID=your_watsonx_project_id_here
    WATSONX_URL=https://us-south.ml.cloud.ibm.com
-
-   CLOUDANT_URL=https://your-cloudant-url-here
-   CLOUDANT_APIKEY=your_cloudant_apikey_here
-   CLOUDANT_DB=learnmate_students
+   WATSONX_MODEL_ID=meta-llama/llama-3-3-70b-instruct
    ```
 
 2. Create `requirements.txt`:
