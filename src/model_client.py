@@ -1,19 +1,11 @@
-# src/model_client.py
-
-import os
-from pathlib import Path
-from dotenv import load_dotenv
-
+import streamlit as st
 from ibm_watsonx_ai.foundation_models import ModelInference
 
-# Load .env from project root
-env_path = Path(__file__).resolve().parent.parent / ".env"
-load_dotenv(dotenv_path=env_path)
-
-BASE_URL = os.getenv("WATSONX_BASE_URL")
-API_KEY = os.getenv("WATSONX_API_KEY")
-PROJECT_ID = os.getenv("WATSONX_PROJECT_ID")
-MODEL_ID = os.getenv("WATSONX_MODEL_ID")
+# Fetch credentials from Streamlit Secrets
+BASE_URL = st.secrets.get("WATSONX_BASE_URL")
+API_KEY = st.secrets.get("WATSONX_API_KEY")
+PROJECT_ID = st.secrets.get("WATSONX_PROJECT_ID")
+MODEL_ID = st.secrets.get("WATSONX_MODEL_ID")
 
 print("DEBUG WATSONX CONFIG:")
 print("  BASE_URL =", BASE_URL)
@@ -23,12 +15,12 @@ print("  MODEL_ID =", MODEL_ID)
 
 
 def _get_model():
-    """
-    Create a watsonx.ai foundation model client for IBM Cloud (SaaS).
-    """
+    """Create a watsonx.ai foundation model client for IBM Cloud (SaaS)."""
 
     if not BASE_URL or not API_KEY or not PROJECT_ID or not MODEL_ID:
-        raise RuntimeError("Watsonx.ai BASE_URL, API_KEY, PROJECT_ID or MODEL_ID missing in .env")
+        raise RuntimeError(
+            "Watsonx.ai credentials missing in Streamlit Secrets"
+        )
 
     # SaaS credentials: url + apikey
     my_credentials = {
@@ -36,7 +28,7 @@ def _get_model():
         "apikey": API_KEY,
     }
 
-    # Use simple parameter keys supported by ModelInference in your SDK version
+    # Use simple parameter keys supported by ModelInference
     gen_parms = {
         "decoding_method": "sample",
         "max_new_tokens": 800,
@@ -57,9 +49,7 @@ def _get_model():
 
 
 def generate_roadmap_text(user_profile, selected_courses):
-    """
-    Call IBM watsonx.ai foundation model to generate a personalized roadmap.
-    """
+    """Call IBM watsonx.ai foundation model to generate a personalized roadmap."""
 
     name = user_profile.get("name", "Student")
     goal = user_profile.get("goal", "")
@@ -73,7 +63,9 @@ def generate_roadmap_text(user_profile, selected_courses):
         course_lines.append(
             f"- {c['course_name']} | domain={c['domain']} | level={c['level']} | duration={c['duration_weeks']} weeks | skills={c['skills']} | provider={c['provider']}"
         )
-    courses_summary = "\n".join(course_lines) if course_lines else "No courses available."
+    courses_summary = (
+        "\n".join(course_lines) if course_lines else "No courses available."
+    )
 
     prompt = f"""
 You are an expert career and learning pathway coach for university students.
@@ -137,7 +129,6 @@ Motivation:
 
         text = ""
 
-        # New logic: pick generated_text from results[0]
         if isinstance(response, dict):
             results = response.get("results", [])
             if results and isinstance(results[0], dict):
@@ -146,7 +137,9 @@ Motivation:
             text = str(response)
 
         if not text:
-            text = "Unable to generate roadmap at the moment. Please try again."
+            text = (
+                "Unable to generate roadmap at the moment. Please try again."
+            )
 
     except Exception as e:
         print("ERROR: watsonx.ai generate() failed:", repr(e))
