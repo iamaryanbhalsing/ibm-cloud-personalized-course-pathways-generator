@@ -222,8 +222,7 @@ Ideas you can add later:
 ## 🤝 Acknowledgements
 
 - **IBM Cloud** Lite tier for free foundational services .
-- **IBM watsonx.ai & Granite foundation models** for the AI coaching engine .
-- **IBM Cloudant** for simple NoSQL storage .
+- **IBM watsonx.ai & lamma foundation models** for the AI coaching engine .
 
 ---
 
