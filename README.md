@@ -218,21 +218,6 @@ Ideas you can add later:
 
 ---
 
-## 📝 License
-
-Choose a license (e.g. MIT) and place it in `LICENSE`:
-
-```text
-MIT License
-
-Copyright (c) 2026 ...
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-...
-```
-
----
-
 ## 🤝 Acknowledgements
 
 - **IBM Cloud** Lite tier for free foundational services .
