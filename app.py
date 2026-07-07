@@ -215,6 +215,7 @@ Provider: {c['provider']}<br>
 
             # AI Roadmap tab
             with tabs[1]:
+                roadmap_html = plan["roadmap_text"].replace("\n", "<br>")
                 st.markdown('<div class="section-header">AI-generated roadmap</div>', unsafe_allow_html=True)
                 st.markdown(
                     f"<div class='roadmap-text'>{plan['roadmap_text'].replace('\\n', '<br>')}</div>",
