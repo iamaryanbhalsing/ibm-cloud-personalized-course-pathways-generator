@@ -222,5 +222,5 @@ Ideas you can add later:
 ---
 
 ## 🤝 Thank you!!
-## 💕 Special Thanks to EDUNET FOUNDATION 
+## 💕 Special Thanks to EDUNET FOUNDATION AND IBM
 ## 🍃 MADE BY ARYAN BHALSING
