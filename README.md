@@ -94,14 +94,6 @@ You will need:
 - `WATSONX_PROJECT_ID` – your watsonx.ai project ID.
 - `WATSONX_URL` – usually `https://us-south.ml.cloud.ibm.com`.
 
-### 3. Create Cloudant instance
-
-- In IBM Cloud, create **Cloudant** (Lite).
-- Go to **Service credentials**.
-- Copy:
-  - Cloudant URL (e.g. `https://xxxxx.cloudantnosqldb.appdomain.cloud`).
-  - Cloudant API key.
-
 You will need:
 
 - `CLOUDANT_URL`
