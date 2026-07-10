@@ -48,16 +48,24 @@ IBM Cloud Lite plans allow you to try over 40 services, including foundation mod
 ## 📂 Project Structure
 
 ```text
-learnmate/
-  backend/
-    app.py
-    requirements.txt
-    .env
-  frontend/
-    index.html
-    style.css
-    app.js
+personalized-course-pathways/
+  assets/
+    styles.css
+  data/
+    courses.csv
+    roadmap_templates.json
+  src/
+    __pycache__/
+    model_client.py
+    recommender.py
+    roadmap_builder.py
+    storage.py
+    utils.py
+  .env
+  app.py
+  requirement.txt
 ```
+
 
 ---
 
