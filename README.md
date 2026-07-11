@@ -155,7 +155,7 @@ You should see something like:
 Live Demo of Running Locally :
 
 <a href="https://ibb.co/s9c3vxn8"><img src="https://i.ibb.co/m5dzCZkf/Recording-2026-07-11-101752-1.gif" alt="Recording-2026-07-11-101752-1" border="0"></a>
-
+Click On It!
 ---
 
 ## 🧠 Agentic AI Aspect
