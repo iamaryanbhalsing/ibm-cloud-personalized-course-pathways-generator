@@ -157,7 +157,6 @@ You should see something like:
 
 LearnMate is **agentic** because:
 
-- It keeps a student profile in Cloudant.
 - Uses Lamma Model from IBM to:
   - Analyse interests and skill level.
   - Plan a multi‑week roadmap.
