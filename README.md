@@ -151,40 +151,6 @@ You should see something like:
 ```text
 * Running on http://127.0.0.1:5000
 ```
-
-Flask allows returning dictionaries which are automatically serialized into JSON, making it simple to expose API endpoints consumed by the frontend
-
-### 2. Frontend setup
-
-The frontend is pure static files, so there’s no build step.
-
-## 💻 Frontend Behaviour
-
-The frontend (`frontend/app.js`) does:
-
-- `saveProfile()` – calls `/profile` to store the student’s data.
-- `generateRoadmap()` – calls `/roadmap` and displays the generated roadmap JSON.
-- `sendChat()` – calls `/chat` and shows LearnMate’s AI response.
-
-All calls use `fetch` with `Content-Type: application/json` and talk to `http://127.0.0.1:5000`.
-
-Flask‑CORS is enabled (`CORS(app)`) so browsers can call the API from a different origin without CORS issues, which is a common pattern for React/JS frontends talking to Flask backends.
-
----
-
-## 🔍 Typical Usage Flow
-
-1. Start the backend: `python app.py`.
-2. Open the frontend: `frontend/index.html`.
-3. Enter:
-   - Student ID and name.
-   - Interests (e.g., `frontend, cybersecurity`).
-   - Level (beginner/intermediate/advanced).
-   - Goal and time per day.
-4. Click **Save Profile**.
-5. Click **Generate Roadmap** – the roadmap appears as formatted JSON.
-6. Use the **Chat** section to ask “How should I start?” or “Can you adjust my plan?”
-
 ---
 
 ## 🧠 Agentic AI Aspect
