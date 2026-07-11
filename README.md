@@ -127,23 +127,23 @@ In the `backend` folder:
 2. Create `requirements.txt`:
 
    ```txt
-   flask
-   flask-cors
-   requests
+   streamlit
+   ibm-watsonx-ai==1.5.14
    python-dotenv
+   pandas
    ```
 
 3. Install dependencies:
 
    ```bash
-   cd backend
+   cd personalized-course-pathways/
    pip install -r requirements.txt
    ```
 
-4. Run the backend:
+4. Run the application:
 
    ```bash
-   python app.py
+   python -m streamlit run app.py
    ```
 
 You should see something like:
