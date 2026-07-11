@@ -151,6 +151,11 @@ You should see something like:
 ```text
 * Running on http://127.0.0.1:5000
 ```
+
+Live Demo of Running Locally :
+
+<a href="https://ibb.co/s9c3vxn8"><img src="https://i.ibb.co/m5dzCZkf/Recording-2026-07-11-101752-1.gif" alt="Recording-2026-07-11-101752-1" border="0"></a>
+
 ---
 
 ## 🧠 Agentic AI Aspect
