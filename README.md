@@ -195,8 +195,7 @@ Ideas you can add later:
 
 ## 🤝 Thank you!!
 
-## 💕 Special Thanks to EDUNET FOUNDATION AND IBM
-
+## Soon this Deployment is going to expire 
 ---
 ### <img src="https://media.giphy.com/media/GFeFpm1jZZD0m4wlQ3/giphy.gif" width="50"> Cᴏɴᴛᴀᴄᴛ & Sᴏᴄɪᴀʟꜱ :
 
